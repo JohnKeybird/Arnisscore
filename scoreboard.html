@@ -1,10 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArnisScore</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,9 +10,7 @@
 
     <div class="score-container">
 
-        <!-- TOP NAVIGATION -->
         <div class="top-navigation">
-
             <a href="index.html" class="back-bracket-btn universal-back">
                 ← BACK
             </a>
@@ -22,13 +18,7 @@
             <a href="history.html" id="history-link">
                 VIEW MATCH HISTORY →
             </a>
-
         </div>
-
-        <header>
-            <h1>ARNISSCORE</h1>
-            <p>ARNIS MATCH SCORING SYSTEM</p>
-        </header>
 
         <div class="match-info">
             <select id="match-stage">
@@ -51,10 +41,16 @@
 
         <main class="scoreboard">
 
-            <!-- RED CORNER -->
+            <!-- RED PLAYER -->
             <div class="player red-player">
-                <h2>RED CORNER</h2>
-                <h3 id="red-player-name">ATHLETE 01</h3>
+
+                <input
+                    type="text"
+                    id="red-player-name"
+                    class="player-name-input"
+                    placeholder="Enter participant name"
+                    maxlength="40"
+                >
 
                 <div class="score" id="red-score">0</div>
 
@@ -99,10 +95,16 @@
                 <button id="reset-timer">RESET TIMER</button>
             </div>
 
-            <!-- BLUE CORNER -->
+            <!-- BLUE PLAYER -->
             <div class="player blue-player">
-                <h2>BLUE CORNER</h2>
-                <h3 id="blue-player-name">ATHLETE 02</h3>
+
+                <input
+                    type="text"
+                    id="blue-player-name"
+                    class="player-name-input"
+                    placeholder="Enter participant name"
+                    maxlength="40"
+                >
 
                 <div class="score" id="blue-score">0</div>
 
@@ -135,6 +137,7 @@
         <!-- CHALLENGE OVERLAY -->
         <div id="challenge-overlay" class="challenge-overlay">
             <div class="challenge-banner">
+
                 <div class="challenge-label">
                     OFFICIAL MATCH ANNOUNCEMENT
                 </div>
@@ -146,6 +149,7 @@
                 <button id="back-to-scoreboard">
                     ← BACK TO SCOREBOARD
                 </button>
+
             </div>
         </div>
 
@@ -166,7 +170,7 @@
         </div>
 
         <footer>
-            <p>ARNISSCORE © 2026</p>
+            <p>PUNTOS © 2026</p>
         </footer>
 
     </div>

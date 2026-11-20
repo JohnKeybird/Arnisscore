@@ -1,6 +1,5 @@
-
 /* ==========================================
-   ARNISSCORE - REGULAR SCOREBOARD
+   PUNTOS - REGULAR SCOREBOARD
    INDEPENDENT SCORING SYSTEM
 ========================================== */
 
@@ -30,8 +29,11 @@ const redNameDisplay = document.getElementById("red-player-name");
 const blueNameDisplay = document.getElementById("blue-player-name");
 
 if (isReadOnlyResult) {
-    redNameDisplay.textContent = savedResult.player1;
-    blueNameDisplay.textContent = savedResult.player2;
+    redNameDisplay.value = savedResult.player1;
+    blueNameDisplay.value = savedResult.player2;
+
+    redNameDisplay.disabled = true;
+    blueNameDisplay.disabled = true;
 }
 
 
@@ -322,9 +324,9 @@ resetButton.addEventListener("click", function() {
 function displayMatchResult() {
 
     if (redScore > blueScore) {
-        resultMessage.textContent = "RED CORNER WINS!";
+        resultMessage.textContent = "RED PLAYER WINS!";
     } else if (blueScore > redScore) {
-        resultMessage.textContent = "BLUE CORNER WINS!";
+        resultMessage.textContent = "BLUE PLAYER WINS!";
     } else {
         resultMessage.textContent = "TIED - OFFICIAL DECISION REQUIRED";
     }
@@ -521,11 +523,27 @@ saveMatchButton.addEventListener("click", function() {
         return;
     }
 
+    // GET PARTICIPANT NAMES
+    const redName = redNameDisplay.value.trim();
+    const blueName = blueNameDisplay.value.trim();
+
+    if (!redName || !blueName) {
+        alert("Please enter both participant names before saving.");
+
+        if (!redName) {
+            redNameDisplay.focus();
+        } else {
+            blueNameDisplay.focus();
+        }
+
+        return;
+    }
+
     saveRoundScores();
 
     const winner = redScore > blueScore
-        ? redNameDisplay.textContent
-        : blueNameDisplay.textContent;
+        ? redName
+        : blueName;
 
     const newMatch = {
 
@@ -537,8 +555,8 @@ saveMatchButton.addEventListener("click", function() {
         matchId: null,
         matchNumber: null,
 
-        player1: redNameDisplay.textContent,
-        player2: blueNameDisplay.textContent,
+        player1: redName,
+        player2: blueName,
 
         winner: winner,
 

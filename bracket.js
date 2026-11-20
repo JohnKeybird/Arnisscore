@@ -53,8 +53,8 @@ function saveNewTournament(names) {
 }
 
 
-// CONTINUE BUTTON
-continueButton.addEventListener("click", function () {
+// CONTINUE / SAVE BUTTON
+function handleContinue() {
 
     // STEP 1: ENTER PARTICIPANT COUNT
     if (!namesDisplayed) {
@@ -63,6 +63,7 @@ continueButton.addEventListener("click", function () {
 
         if (!Number.isInteger(count) || count < 2 || count > 64) {
             alert("Please enter a number of participants between 2 and 64.");
+            countInput.focus();
             return;
         }
 
@@ -83,10 +84,15 @@ continueButton.addEventListener("click", function () {
             `;
         }
 
-        countInput.disabled = true;
+        // HIDE PARTICIPANT COUNT BOX
+        countInput.hidden = true;
+
         continueButton.textContent = "SAVE PARTICIPANTS";
 
         namesDisplayed = true;
+
+        // FOCUS FIRST PARTICIPANT INPUT
+        document.querySelector(".participant-name").focus();
 
         return;
     }
@@ -101,8 +107,16 @@ continueButton.addEventListener("click", function () {
 
     if (names.length !== participantCount || names.some(name => name === "")) {
         alert("Please enter a name for every participant.");
+
+        const emptyInput = Array.from(nameInputs).find(
+            input => input.value.trim() === ""
+        );
+
+        if (emptyInput) emptyInput.focus();
+
         return;
     }
+
 
     // CHECK DUPLICATE NAMES
     const normalizedNames = names.map(name => name.toLowerCase());
@@ -112,12 +126,39 @@ continueButton.addEventListener("click", function () {
         return;
     }
 
+
     // CREATE INDEPENDENT TOURNAMENT
     const tournamentId = saveNewTournament(names);
+
 
     // OPEN THE NEW TOURNAMENT
     window.location.href =
         "bracket-display.html?tournamentId=" +
         encodeURIComponent(tournamentId);
+}
+
+
+// BUTTON CLICK
+continueButton.addEventListener("click", handleContinue);
+
+
+// ENTER KEY: PARTICIPANT COUNT
+countInput.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter") {
+        event.preventDefault();
+        handleContinue();
+    }
+
+});
+
+
+// ENTER KEY: PARTICIPANT NAMES
+participantFields.addEventListener("keydown", function (event) {
+
+    if (event.key === "Enter" && event.target.classList.contains("participant-name")) {
+        event.preventDefault();
+        handleContinue();
+    }
 
 });
