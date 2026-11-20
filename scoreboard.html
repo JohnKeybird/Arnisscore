@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArnisScore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="score-container">
+
+        <!-- TOP NAVIGATION -->
+        <div class="top-navigation">
+
+            <a href="index.html" class="back-bracket-btn universal-back">
+                ← BACK
+            </a>
+
+            <a href="history.html" id="history-link">
+                VIEW MATCH HISTORY →
+            </a>
+
+        </div>
+
+        <header>
+            <h1>ARNISSCORE</h1>
+            <p>ARNIS MATCH SCORING SYSTEM</p>
+        </header>
+
+        <div class="match-info">
+            <select id="match-stage">
+                <option value="Elimination">ELIMINATION</option>
+                <option value="Quarter Final">QUARTER FINAL</option>
+                <option value="Semi Final">SEMI FINAL</option>
+                <option value="Final Match" selected>FINAL MATCH</option>
+            </select>
+
+            <select id="round-selector">
+                <option value="1">ROUND 01</option>
+                <option value="2">ROUND 02</option>
+                <option value="3">ROUND 03</option>
+                <option value="4">ROUND 04</option>
+                <option value="5">ROUND 05</option>
+            </select>
+
+            <span id="match-status">NOT STARTED</span>
+        </div>
+
+        <main class="scoreboard">
+
+            <!-- RED CORNER -->
+            <div class="player red-player">
+                <h2>RED CORNER</h2>
+                <h3 id="red-player-name">ATHLETE 01</h3>
+
+                <div class="score" id="red-score">0</div>
+
+                <div class="minor-scores">
+                    <div class="minor-score">
+                        <h4>FOUL</h4>
+                        <div class="minor-controls">
+                            <button id="red-foul-minus">−</button>
+                            <span id="red-foul">0</span>
+                            <button id="red-foul-plus">+</button>
+                        </div>
+                    </div>
+
+                    <div class="minor-score">
+                        <h4>DISARM</h4>
+                        <div class="minor-controls">
+                            <button id="red-disarm-minus">−</button>
+                            <span id="red-disarm">0</span>
+                            <button id="red-disarm-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="red-plus">+ ADD POINT</button>
+                <button id="red-minus">- REMOVE POINT</button>
+            </div>
+
+            <!-- MATCH TIMER -->
+            <div class="match-timer">
+                <p>TIME REMAINING</p>
+
+                <button id="challenge-button">⚡ CHALLENGE</button>
+
+                <div id="timer" title="Click to edit timer">01:30</div>
+
+                <div class="timer-adjustments">
+                    <button id="subtract-second">-1 SEC</button>
+                    <button id="add-second">+1 SEC</button>
+                </div>
+
+                <button id="start-timer">START</button>
+                <button id="reset-timer">RESET TIMER</button>
+            </div>
+
+            <!-- BLUE CORNER -->
+            <div class="player blue-player">
+                <h2>BLUE CORNER</h2>
+                <h3 id="blue-player-name">ATHLETE 02</h3>
+
+                <div class="score" id="blue-score">0</div>
+
+                <div class="minor-scores">
+                    <div class="minor-score">
+                        <h4>FOUL</h4>
+                        <div class="minor-controls">
+                            <button id="blue-foul-minus">−</button>
+                            <span id="blue-foul">0</span>
+                            <button id="blue-foul-plus">+</button>
+                        </div>
+                    </div>
+
+                    <div class="minor-score">
+                        <h4>DISARM</h4>
+                        <div class="minor-controls">
+                            <button id="blue-disarm-minus">−</button>
+                            <span id="blue-disarm">0</span>
+                            <button id="blue-disarm-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="blue-plus">+ ADD POINT</button>
+                <button id="blue-minus">- REMOVE POINT</button>
+            </div>
+
+        </main>
+
+        <!-- CHALLENGE OVERLAY -->
+        <div id="challenge-overlay" class="challenge-overlay">
+            <div class="challenge-banner">
+                <div class="challenge-label">
+                    OFFICIAL MATCH ANNOUNCEMENT
+                </div>
+
+                <h1>⚡ CHALLENGE ⚡</h1>
+
+                <p>THE MATCH HAS BEEN CHALLENGED</p>
+
+                <button id="back-to-scoreboard">
+                    ← BACK TO SCOREBOARD
+                </button>
+            </div>
+        </div>
+
+        <!-- MATCH RESULT -->
+        <div id="match-result" class="match-result">
+            <h2 id="result-message"></h2>
+        </div>
+
+        <!-- SAVE MATCH -->
+        <div class="main-actions">
+            <button id="save-match">SAVE MATCH</button>
+        </div>
+
+        <!-- RESET SCORES -->
+        <div class="danger-zone">
+            <p>MATCH RESET</p>
+            <button id="reset-scores">RESET SCORES</button>
+        </div>
+
+        <footer>
+            <p>ARNISSCORE © 2026</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="universal-back.js"></script>
+
+</body>
+</html>

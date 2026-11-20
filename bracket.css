@@ -1,0 +1,112 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111827;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.bracket-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #1f2937;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #374151;
+}
+
+.bracket-container h1 {
+    color: #facc15;
+    margin-bottom: 15px;
+}
+
+.bracket-container p {
+    color: #d1d5db;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.bracket-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.bracket-container input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #4b5563;
+    border-radius: 6px;
+    background-color: #111827;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#continue-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #facc15;
+    color: #111827;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#continue-button:hover {
+    background-color: #eab308;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    color: #facc15;
+}
+
+
+/* CREATE TOURNAMENT BACK BUTTON */
+.bracket-container {
+    position: relative;
+}
+
+.bracket-container .universal-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #1f2937;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* MOVE HEADING BELOW BACK BUTTON */
+.bracket-container > h1 {
+    margin-top: 65px;
+}
