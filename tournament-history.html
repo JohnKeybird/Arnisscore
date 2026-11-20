@@ -1,11 +1,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tournament Management | ArnisScore</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        .create-bracket-button {
+            display: inline-block;
+            background-color: #facc15;
+            color: #111827;
+            padding: 11px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .create-bracket-button:hover {
+            background-color: #eab308;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .history-header {
+                align-items: center;
+                gap: 12px;
+            }
+
+            .create-bracket-button {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .history-header h2 {
+                font-size: 16px;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -17,18 +58,31 @@
         </a>
 
         <header>
+
             <h1>ARNISSCORE</h1>
+
             <p>TOURNAMENT MANAGEMENT</p>
+
         </header>
 
         <section class="history-section">
 
             <div class="history-header">
+
                 <h2>MY TOURNAMENTS</h2>
+
+                <a href="create-bracket.html" class="create-bracket-button">
+                    + CREATE BRACKET
+                </a>
+
             </div>
 
             <div id="history-list">
-                <p class="empty-history">No tournaments created yet.</p>
+
+                <p class="empty-history">
+                    No tournaments created yet.
+                </p>
+
             </div>
 
         </section>
