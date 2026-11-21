@@ -1,4 +1,8 @@
 
+/* =========================================
+   PUNTOS - LANDING PAGE STYLESHEET
+========================================= */
+
 /* GENERAL SETTINGS */
 
 * {
@@ -12,8 +16,6 @@ html {
     overflow-x: hidden;
 }
 
-
-
 body {
     background-color: #0f172a;
     color: #f8fafc;
@@ -22,7 +24,9 @@ body {
 }
 
 
-/* NAVIGATION BAR */
+/* =========================================
+   NAVIGATION BAR
+========================================= */
 
 .navbar {
     display: flex;
@@ -37,6 +41,13 @@ body {
     font-size: 23px;
     font-weight: 900;
     letter-spacing: 2px;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .logo .arnis-o,
@@ -89,7 +100,10 @@ footer h3 .arnis-o {
     transform: translateY(-2px);
 }
 
-/* HERO SECTION */
+
+/* =========================================
+   HERO SECTION
+========================================= */
 
 .hero {
     min-height: 570px;
@@ -175,7 +189,10 @@ footer h3 .arnis-o {
     color: #111827;
 }
 
-/* HERO DECORATION */
+
+/* =========================================
+   HERO DECORATION
+========================================= */
 
 .hero-decoration {
     position: relative;
@@ -226,7 +243,10 @@ footer h3 .arnis-o {
     right: -40px;
 }
 
-/* ABOUT SECTION */
+
+/* =========================================
+   ABOUT SECTION
+========================================= */
 
 .about {
     padding: 90px 15%;
@@ -250,7 +270,10 @@ footer h3 .arnis-o {
     line-height: 1.9;
 }
 
-/* FEATURES SECTION */
+
+/* =========================================
+   FEATURES SECTION
+========================================= */
 
 .features {
     padding: 90px 10%;
@@ -292,7 +315,10 @@ footer h3 .arnis-o {
     line-height: 1.7;
 }
 
-/* FOOTER */
+
+/* =========================================
+   FOOTER
+========================================= */
 
 footer {
     background-color: #080f1e;
@@ -307,6 +333,13 @@ footer h3 {
     margin-bottom: 12px;
 }
 
+footer h3 img {
+    height: 65px;
+    width: auto;
+    display: inline-block;
+    object-fit: contain;
+}
+
 footer p {
     color: #94a3b8;
     font-size: 11px;
@@ -318,7 +351,478 @@ footer .copyright {
     color: #64748b;
 }
 
-/* TABLET */
+
+/* =========================================
+   PUNTOS LOADING SCREEN
+========================================= */
+
+.loader-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.loader-screen.finished {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    width: min(420px, 85%);
+    text-align: center;
+    position: relative;
+}
+
+.loader-title {
+    color: #facc15;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+}
+
+.loader-subtitle {
+    color: #94a3b8;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 100px;
+}
+
+
+/* =========================================
+   FIGHTER STAGE AND LOADING PLATFORM
+========================================= */
+
+.fighter-stage {
+    position: relative;
+    height: 75px;
+    margin-bottom: 12px;
+    background: #1e293b;
+    border: 1px solid #475569;
+    overflow: visible;
+}
+
+/* Loading progress */
+
+.loader-progress {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0%;
+    height: 9px;
+    background: #facc15;
+    transform: translateX(-50%);
+    transition: width 0.08s linear;
+    z-index: 1;
+}
+
+
+/* =========================================
+   FIGHTERS
+========================================= */
+
+.fighter {
+    position: absolute;
+    bottom: 9px;
+    width: 42px;
+    height: 55px;
+    z-index: 2;
+    image-rendering: pixelated;
+    transition: left 0.08s linear;
+}
+
+.fighter-red {
+    left: 8px;
+}
+
+.fighter-blue {
+    left: calc(100% - 50px);
+    right: auto;
+    transform: scaleX(-1);
+}
+
+
+/* =========================================
+   HEADGEAR AND FACE PROTECTION
+========================================= */
+
+.fighter-head {
+    position: absolute;
+    top: 0;
+    left: 8px;
+    width: 20px;
+    height: 19px;
+    border: 3px solid #e2e8f0;
+    box-sizing: border-box;
+}
+
+.fighter-red .fighter-head {
+    background: #ef4444;
+}
+
+.fighter-blue .fighter-head {
+    background: #2563eb;
+}
+
+.fighter-head::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 7px;
+    background: repeating-linear-gradient(
+        90deg,
+        #e2e8f0 0px,
+        #e2e8f0 2px,
+        transparent 2px,
+        transparent 4px
+    );
+    border-top: 2px solid #e2e8f0;
+}
+
+
+/* =========================================
+   PROTECTIVE VEST
+========================================= */
+
+.fighter-body {
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    width: 26px;
+    height: 21px;
+    border: 3px solid #e2e8f0;
+    box-sizing: border-box;
+}
+
+.fighter-red .fighter-body {
+    background: #dc2626;
+}
+
+.fighter-blue .fighter-body {
+    background: #2563eb;
+}
+
+
+/* =========================================
+   ARMS
+========================================= */
+
+.fighter-arm {
+    position: absolute;
+    top: 23px;
+    left: 29px;
+    width: 12px;
+    height: 7px;
+    background: #e2e8f0;
+    transform: rotate(0deg);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+}
+
+
+
+/* =========================================
+   LEGS AND FOOT PROTECTION
+========================================= */
+
+.fighter-leg {
+    position: absolute;
+    top: 41px;
+    left: 9px;
+    width: 7px;
+    height: 10px;
+    background: #e2e8f0;
+    box-shadow: 11px 0 #e2e8f0;
+}
+
+.fighter-leg::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: -3px;
+    width: 11px;
+    height: 6px;
+    background: #dc2626;
+    box-shadow: 11px 0 #dc2626;
+}
+
+.fighter-blue .fighter-leg::before {
+    background: #2563eb;
+    box-shadow: 11px 0 #2563eb;
+}
+
+
+/* =========================================
+   STICK
+========================================= */
+
+.fighter-stick {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 5px;
+    height: 34px;
+    border-radius: 2px;
+
+    /* Attached to the arm */
+    transform: rotate(35deg);
+    transform-origin: bottom center;
+    transition: transform 0.25s ease;
+}
+
+.fighter-red .fighter-stick {
+    background: #ef4444;
+}
+
+.fighter-blue .fighter-stick {
+    background: #3b82f6;
+}
+
+
+/* =========================================
+   LOADING PERCENTAGE
+========================================= */
+
+.loader-percentage {
+    position: absolute;
+    top: -34px;
+    left: 8px;
+    margin: 0;
+    color: #facc15;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transition: left 0.08s linear;
+    z-index: 6;
+}
+
+
+/* =========================================
+   FIGHTER COLLISION AND BLUE STRIKE
+========================================= */
+
+/* Blue raises its arm before striking */
+
+.fighter-stage.impact .fighter-blue .fighter-arm {
+    animation: blueArmRaise 0.25s ease-out forwards;
+}
+
+@keyframes blueArmRaise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-55deg);
+    }
+}
+
+/* Blue strikes toward red headgear */
+
+.fighter-stage.impact .fighter-blue .fighter-stick {
+    animation: blueHeadStrike 0.35s ease-out 0.18s forwards;
+}
+
+@keyframes blueHeadStrike {
+    0% {
+        transform: rotate(35deg);
+    }
+
+    65% {
+        transform: rotate(75deg) translateY(-5px);
+    }
+
+    100% {
+        transform: rotate(75deg) translateY(-5px);
+    }
+}
+
+/* Keep red fighter in its original position */
+
+.fighter-red.hit {
+    animation: none;
+    transform: none;
+}
+
+/* Keep red stick in its original position */
+
+.fighter-stage.impact .fighter-red .fighter-stick {
+    transform: rotate(35deg);
+}
+
+/* Impact flash */
+
+.fighter-stage.impact::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    color: #facc15;
+    font-size: 42px;
+    z-index: 8;
+    animation: impactFlash 0.6s ease-out forwards;
+}
+
+@keyframes impactFlash {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.2);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+    }
+}
+
+
+/* =========================================
+   BLUE VICTORY HIGHLIGHT
+========================================= */
+
+.fighter-blue.winner {
+    filter:
+        drop-shadow(0 0 8px #3b82f6)
+        drop-shadow(0 0 16px #2563eb);
+    animation: blueVictory 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes blueVictory {
+    from {
+        filter: drop-shadow(0 0 4px #3b82f6);
+    }
+
+    to {
+        filter: drop-shadow(0 0 16px #60a5fa);
+    }
+}
+
+
+/* =========================================
+   REFEREE
+========================================= */
+
+.referee {
+    position: relative;
+    width: 45px;
+    height: 75px;
+    margin: 12px auto 0;
+}
+
+.referee-head {
+    position: absolute;
+    top: 0;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    background: #facc15;
+    border: 2px solid #e2e8f0;
+}
+
+.referee-body {
+    position: absolute;
+    top: 18px;
+    left: 9px;
+    width: 26px;
+    height: 30px;
+    background: #f8fafc;
+    border: 3px solid #94a3b8;
+}
+
+.referee-arm {
+    position: absolute;
+    top: 18px;
+    left: 29px;
+    width: 7px;
+    height: 25px;
+    background: #f8fafc;
+    transform: rotate(-35deg);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+}
+
+/* REFEREE SECOND ARM */
+.referee::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: 14px;
+    width: 7px;
+    height: 25px;
+    background: #f8fafc;
+    transform: rotate(35deg);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+}
+
+.referee-flag {
+    position: absolute;
+    top: 4px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-left: 0 solid #3b82f6;
+    transform-origin: left center;
+    transition: all 0.4s ease;
+}
+
+/* Referee raises the blue flag */
+
+.referee.announce .referee-arm {
+    transform: rotate(-125deg);
+}
+
+.referee.announce .referee-flag {
+    opacity: 1;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 24px solid #3b82f6;
+    transform: rotate(-45deg);
+    filter: drop-shadow(0 0 6px #3b82f6);
+}
+
+
+/* =========================================
+   WINNER ANNOUNCEMENT
+========================================= */
+
+.winner-message {
+    opacity: 0;
+    color: #60a5fa;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-top: 8px;
+    text-shadow: 0 0 12px #2563eb;
+    transform: scale(0.7);
+    transition: all 0.4s ease;
+}
+
+.winner-message.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
 
 @media (max-width: 900px) {
 
@@ -341,7 +845,10 @@ footer .copyright {
     }
 }
 
-/* MOBILE */
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
 
 @media (max-width: 600px) {
 
@@ -458,7 +965,10 @@ footer .copyright {
     }
 }
 
-/* SMALL PHONES */
+
+/* =========================================
+   SMALL PHONES
+========================================= */
 
 @media (max-width: 360px) {
 
@@ -490,17 +1000,65 @@ footer .copyright {
     }
 }
 
-.logo img {
-    height: 55px;
-    width: auto;
-    display: block;
-    object-fit: contain;
+
+/* BLUE FIGHTER - RAISE ARM */
+.fighter-blue.raise-arm .fighter-arm {
+    animation: blueArmRaise 0.25s ease-out forwards;
 }
 
-footer h3 img {
-    height: 65px;
-    width: auto;
-    display: inline-block;
-    object-fit: contain;
+@keyframes blueArmRaise {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-55deg);
+    }
 }
 
+/* BLUE FIGHTER - HEAD STRIKE */
+.fighter-blue.strike-head .fighter-stick {
+    animation: blueHeadStrike 0.35s ease-out forwards;
+}
+
+@keyframes blueHeadStrike {
+    0% {
+        transform: rotate(35deg);
+    }
+    65% {
+        transform: rotate(75deg) translateY(-5px);
+    }
+    100% {
+        transform: rotate(75deg) translateY(-5px);
+    }
+}
+
+/* BLUE IMPACT FLASH */
+.fighter-stage.impact::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    color: #facc15;
+    font-size: 36px;
+    z-index: 8;
+    animation: impactFlash 0.5s ease-out forwards;
+}
+
+/* BLUE RAISES HIS ARM */
+.fighter-blue.raise-arm .fighter-arm {
+    transform: rotate(-55deg);
+}
+
+/* STICK FOLLOWS THE ARM */
+.fighter-blue.raise-arm .fighter-stick {
+    transform: rotate(35deg);
+}
+
+/* BLUE STRIKES */
+.fighter-blue.strike-head .fighter-arm {
+    transform: rotate(-110deg);
+}
+
+.fighter-blue.strike-head .fighter-stick {
+    transform: rotate(75deg);
+}
